@@ -9,7 +9,7 @@ import { Header } from "./components/Header";
 const App = () => {
   return (
     <>
-      <Router>
+      <Router basename="/kapoy" >
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
