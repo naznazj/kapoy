@@ -6,6 +6,6 @@ export default defineConfig({
   base: "/kapoy/",
   plugins: [react()],
   build: {
-    outDir: 'dist', // Ensure this matches the directory Vercel serves
+    outDir: 'dist',
   },
 })
