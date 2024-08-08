@@ -2,44 +2,35 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 export const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
-
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Replace these with your actual credentials
         const serviceID = 'service_cf7neln';
         const templateID = 'template_0y07k33';
         const userID = 'cgCr7_G2oYkeDq7RD';
 
         emailjs.sendForm(serviceID, templateID, e.target, userID)
-            .then((result) => {
+            .then(() => {
                 setStatus('Message sent successfully!');
-                setFormData({ name: '', email: '', message: '' }); // Clear form fields
-            }, (error) => {
+                setFormData({ name: '', email: '', message: '' });
+            }, () => {
                 setStatus('Error sending message. Please try again.');
             });
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
-            <h2 className="text-3xl font-bold mb-6 text-center">Contact Me</h2>
+        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Contact Me</h2>
             <form
-                className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
+                className="bg-white p-4 md:p-8 rounded-lg shadow-lg w-full max-w-md"
                 onSubmit={handleSubmit}
             >
                 <div className="mb-4">
