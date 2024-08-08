@@ -6,7 +6,7 @@ import animationData from "../assets/hello3.json";
 export const Home = () => {
     return (
         <>
-            <div className="min-h-screen bg-amber-200 flex flex-col md:flex-row">
+            <div className="min-h-screen bg-white flex flex-col md:flex-row">
                 <div className="w-full md:w-1/2 bg-white flex justify-center items-center">
                     <Lottie animationData={animationData} />
                 </div>
